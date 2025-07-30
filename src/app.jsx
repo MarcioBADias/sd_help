@@ -1,62 +1,67 @@
-import React, { useReducer, useEffect } from 'react';
-import { initialThemeState, themeReducer } from './reducers/themeReducer';
-import './App.css';
-import './styles/global.css';
+import React, { useReducer, useEffect } from 'react'
+import { initialThemeState, themeReducer } from './reducers/themeReducer'
+import {
+  initialNavigationState,
+  navigationReducer,
+} from './reducers/navigationReducer'
+import { documentationData } from './data/documentationData'
+import './App.css'
+import './styles/global.css'
+import { Header } from './components/Header'
+import { Sidebar } from './components/Sidebar'
+import { Content } from './components/Content'
 
-const Header = ({ dispatch }) => {
-  const toggleTheme = () => {
-    dispatch({ type: 'TOGGLE_THEME' });
-  };
-
-  return (
-    <header className="app-header">
-      <h1>SD Help</h1>
-      <button onClick={toggleTheme} className="theme-toggle-button">
-        Alternar Tema
-      </button>
-    </header>
-  );
-};
-
-const Sidebar = () => {
-  return (
-    <nav className="app-sidebar">
-      <ul>
-        [cite_start]<li><a href="#">Instalação do SD Super SERVIDOR</a></li> {/* [cite: 1] */}
-        [cite_start]<li><a href="#">Instalação de SDSuper Retaguarda</a></li> {/* [cite: 9] */}
-        [cite_start]<li><a href="#">Preparação Windows para o SDPdv</a></li> {/* [cite: 14] */}
-        [cite_start]<li><a href="#">Instalação do SDPdv</a></li> {/* [cite: 19] */}
-        [cite_start]<li><a href="#">SDPdv e suas funções</a></li> {/* [cite: 27] */}
-      </ul>
-    </nav>
-  );
-};
-
-const Content = () => {
-  return (
-    <main className="app-content">
-      <h2>Bem-vindo ao SD Help!</h2>
-      <p>Navegue pelas seções à esquerda para encontrar informações sobre as rotinas do sistema SD Informática.</p>
-    </main>
-  );
-};
-
-function App() {
-  const [themeState, dispatch] = useReducer(themeReducer, initialThemeState);
+const App = () => {
+  const [themeState, dispatchTheme] = useReducer(
+    themeReducer,
+    initialThemeState,
+  )
+  const [navigationState, dispatchNavigation] = useReducer(
+    navigationReducer,
+    initialNavigationState,
+  )
 
   useEffect(() => {
-    document.body.className = themeState.theme;
-  }, [themeState.theme]);
+    document.body.className = themeState.theme
+  }, [themeState.theme])
+
+  useEffect(() => {
+    if (!navigationState.selectedItemId && documentationData.length > 0) {
+      if (
+        documentationData[0].content &&
+        documentationData[0].content.length > 0
+      ) {
+        dispatchNavigation({
+          type: 'SELECT_ITEM',
+          payload: {
+            id: documentationData[0].content[0].id,
+            parentId: documentationData[0].id,
+          },
+        })
+      } else {
+        dispatchNavigation({
+          type: 'SELECT_ITEM',
+          payload: { id: documentationData[0].id, parentId: null },
+        })
+      }
+    }
+  }, [navigationState.selectedItemId])
 
   return (
     <div className="app-container">
-      <Header dispatch={dispatch} />
+      <Header dispatchTheme={dispatchTheme} />
       <div className="main-layout">
-        <Sidebar />
-        <Content />
+        <Sidebar
+          navigationState={navigationState}
+          dispatchNavigation={dispatchNavigation}
+        />
+        <Content
+          selectedItemId={navigationState.selectedItemId}
+          data={documentationData}
+        />
       </div>
     </div>
-  );
+  )
 }
 
-export { App };
+export { App }
