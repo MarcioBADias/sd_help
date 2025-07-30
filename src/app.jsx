@@ -26,7 +26,11 @@ const App = () => {
   }, [themeState.theme])
 
   useEffect(() => {
-    if (!navigationState.selectedItemId && documentationData.length > 0) {
+    if (
+      !navigationState.selectedItemId &&
+      !navigationState.searchTerm &&
+      documentationData.length > 0
+    ) {
       if (
         documentationData[0].content &&
         documentationData[0].content.length > 0
@@ -45,11 +49,15 @@ const App = () => {
         })
       }
     }
-  }, [navigationState.selectedItemId])
+  }, [navigationState.selectedItemId, navigationState.searchTerm])
 
   return (
     <div className="app-container">
-      <Header dispatchTheme={dispatchTheme} />
+      <Header
+        dispatchTheme={dispatchTheme}
+        dispatchNavigation={dispatchNavigation}
+        searchTerm={navigationState.searchTerm}
+      />
       <div className="main-layout">
         <Sidebar
           navigationState={navigationState}
@@ -57,6 +65,7 @@ const App = () => {
         />
         <Content
           selectedItemId={navigationState.selectedItemId}
+          searchTerm={navigationState.searchTerm}
           data={documentationData}
         />
       </div>

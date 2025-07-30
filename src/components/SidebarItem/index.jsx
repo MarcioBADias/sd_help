@@ -1,16 +1,15 @@
 import React from 'react'
-import { ChevronsDown, ChevronsRight } from 'react-feather'
+import { ChevronDown, ChevronRight } from 'react-feather'
 
-const SidebarItem = ({
-  item,
-  level,
-  isExpanded,
-  isSelected,
-  dispatchNavigation,
-}) => {
+const SidebarItem = ({ item, level, navigationState, dispatchNavigation }) => {
   const hasChildren = item.content && item.content.length > 0
+  const isExpanded = navigationState.expandedSections.includes(item.id)
+  const isSelected = navigationState.selectedItemId === item.id
 
   const handleItemClick = () => {
+    if (navigationState.searchTerm) {
+      dispatchNavigation({ type: 'SET_SEARCH_TERM', payload: '' })
+    }
     if (hasChildren) {
       dispatchNavigation({ type: 'TOGGLE_SECTION', payload: item.id })
     } else {
@@ -27,11 +26,7 @@ const SidebarItem = ({
     <li className={itemClassName}>
       <div className="sidebar-item-header" onClick={handleItemClick}>
         {hasChildren &&
-          (isExpanded ? (
-            <ChevronsDown size={16} />
-          ) : (
-            <ChevronsRight size={16} />
-          ))}
+          (isExpanded ? <ChevronDown size={16} /> : <ChevronRight size={16} />)}
         <span className="sidebar-item-title">{item.title}</span>
       </div>
       {hasChildren && isExpanded && (
@@ -39,15 +34,10 @@ const SidebarItem = ({
           {item.content.map((subItem) => (
             <SidebarItem
               key={subItem.id}
-              item={{ ...subItem, parentId: item.id }} // Passa o ID do pai para subitens
+              item={{ ...subItem, parentId: item.id }}
               level={level + 1}
-              isExpanded={
-                isExpanded && subItem.id === dispatchNavigation.expandedSections
-              } // Mock para evitar erro antes da implementação real
-              isSelected={
-                isSelected && subItem.id === dispatchNavigation.selectedItemId
-              } // Mock
-              dispatchNavigation={dispatchNavigation} // Passa o dispatch completo
+              navigationState={navigationState}
+              dispatchNavigation={dispatchNavigation}
             />
           ))}
         </ul>

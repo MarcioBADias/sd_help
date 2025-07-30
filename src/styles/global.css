@@ -10,6 +10,12 @@
   --link-hover-light: #0056b3;
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body.light {
   background-color: var(--background-color-light);
   color: var(--text-color-light);
@@ -105,7 +111,9 @@ body.dark .app-content h2 {
   color: var(--text-color-dark);
 }
 
-html, body, #root {
+html,
+body,
+#root {
   margin: 0;
   padding: 0;
   box-sizing: border-box;

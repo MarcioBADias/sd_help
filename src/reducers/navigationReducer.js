@@ -1,6 +1,7 @@
 const initialNavigationState = {
   selectedItemId: null,
   expandedSections: [],
+  searchTerm: '',
 }
 
 function navigationReducer(state, action) {
@@ -8,6 +9,7 @@ function navigationReducer(state, action) {
     return {
       ...state,
       selectedItemId: action.payload.id,
+      searchTerm: '',
       expandedSections: state.expandedSections.includes(action.payload.parentId)
         ? state.expandedSections
         : [...state.expandedSections, action.payload.parentId].filter(Boolean),
@@ -21,6 +23,13 @@ function navigationReducer(state, action) {
       expandedSections: isExpanded
         ? state.expandedSections.filter((id) => id !== sectionId)
         : [...state.expandedSections, sectionId],
+    }
+  }
+  if (action.type === 'SET_SEARCH_TERM') {
+    return {
+      ...state,
+      searchTerm: action.payload,
+      selectedItemId: null,
     }
   }
   return state

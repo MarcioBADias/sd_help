@@ -11,20 +11,7 @@ const Sidebar = ({ navigationState, dispatchNavigation }) => {
             key={section.id}
             item={section}
             level={0}
-            isExpanded={navigationState.expandedSections.includes(section.id)}
-            isSelected={
-              navigationState.selectedItemId === section.id ||
-              (section.content &&
-                section.content.some(
-                  (subItem) =>
-                    subItem.id === navigationState.selectedItemId ||
-                    (subItem.content &&
-                      subItem.content.some(
-                        (subSubItem) =>
-                          subSubItem.id === navigationState.selectedItemId,
-                      )),
-                ))
-            }
+            navigationState={navigationState}
             dispatchNavigation={dispatchNavigation}
           />
         ))}
