@@ -32,5 +32,4 @@ const Sidebar = ({ navigationState, dispatchNavigation }) => {
     </nav>
   )
 }
-
 export { Sidebar }

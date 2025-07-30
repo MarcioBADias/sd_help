@@ -49,5 +49,4 @@ const Content = ({ selectedItemId, data }) => {
     </main>
   )
 }
-
 export { Content }
