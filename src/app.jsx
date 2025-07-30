@@ -8,7 +8,7 @@ import { documentationData } from './data/documentationData'
 import { Header } from './components/Header'
 import { Sidebar } from './components/Sidebar'
 import { Content } from './components/Content'
-import './App.css'
+import './app.css'
 import './styles/global.css'
 
 const App = () => {
