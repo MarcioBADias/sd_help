@@ -5,11 +5,11 @@ import {
   navigationReducer,
 } from './reducers/navigationReducer'
 import { documentationData } from './data/documentationData'
-import './App.css'
-import './styles/global.css'
 import { Header } from './components/Header'
 import { Sidebar } from './components/Sidebar'
 import { Content } from './components/Content'
+import './App.css'
+import './styles/global.css'
 
 const App = () => {
   const [themeState, dispatchTheme] = useReducer(
