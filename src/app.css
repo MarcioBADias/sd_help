@@ -167,3 +167,14 @@ body.dark .documentation-text {
   border-color: #3a3f45;
   color: #e0e0e0;
 }
+
+.highlight {
+  background-color: yellow; /* Cor de fundo para o destaque no tema claro */
+  padding: 2px 0; /* Pequeno espaçamento para visualização */
+  border-radius: 3px;
+}
+
+body.dark .highlight {
+  background-color: #61dafb; /* Cor de fundo para o destaque no tema escuro (um azul mais claro) */
+  color: #282c34; /* Cor do texto para contraste no tema escuro */
+}

@@ -1,4 +1,12 @@
 import React from 'react'
+import {
+  ContentContainer,
+  ContentTitle,
+  SearchResultsList,
+  SearchResultItem,
+  SearchResultTitle,
+  SearchResultSubItem,
+} from './style'
 
 const Content = ({ selectedItemId, searchTerm, data }) => {
   const findItemById = (items, id) => {
@@ -16,14 +24,63 @@ const Content = ({ selectedItemId, searchTerm, data }) => {
     return null
   }
 
-  const renderContentWithBreaks = (text) => {
-    if (!text) return null
-    return text.split('\n').map((line, index) => (
-      <React.Fragment key={index}>
-        {line}
-        <br />
-      </React.Fragment>
-    ))
+  const renderContentWithBreaks = (contentParts) => {
+    if (!contentParts) return null
+
+    if (Array.isArray(contentParts)) {
+      return contentParts.flatMap((part, idx) =>
+        typeof part === 'string' ? (
+          part.split('\n').map((line, lineIdx) => (
+            <React.Fragment key={`${idx}-${lineIdx}`}>
+              {line}
+              <br />
+            </React.Fragment>
+          ))
+        ) : (
+          <React.Fragment key={idx}>{part}</React.Fragment>
+        ),
+      )
+    } else {
+      return contentParts.split('\n').map((line, index) => (
+        <React.Fragment key={index}>
+          {line}
+          <br />
+        </React.Fragment>
+      ))
+    }
+  }
+
+  const highlightText = (text, term) => {
+    if (!text || !term) return text
+
+    const parts = []
+    let lastIndex = 0
+    const lowerCaseTerm = term.toLowerCase()
+
+    const regex = new RegExp(`(${lowerCaseTerm})`, 'gi')
+    let match
+
+    while ((match = regex.exec(text)) !== null) {
+      const startIndex = match.index
+      const endIndex = regex.lastIndex
+
+      if (startIndex > lastIndex) {
+        parts.push(text.substring(lastIndex, startIndex))
+      }
+
+      parts.push(
+        <mark key={startIndex} className="highlight">
+          {text.substring(startIndex, endIndex)}
+        </mark>,
+      )
+      lastIndex = endIndex
+    }
+
+    if (lastIndex < text.length) {
+      parts.push(text.substring(lastIndex))
+    }
+
+    return parts
   }
 
   const filterData = (items, term) => {
@@ -37,7 +94,11 @@ const Content = ({ selectedItemId, searchTerm, data }) => {
         item.text && item.text.toLowerCase().includes(lowerCaseTerm)
 
       if (titleMatches || textMatches) {
-        results.push(item)
+        results.push({
+          ...item,
+          highlightedTitle: highlightText(item.title, term),
+          highlightedText: item.text ? highlightText(item.text, term) : null,
+        })
       }
 
       if (item.content) {
@@ -48,9 +109,27 @@ const Content = ({ selectedItemId, searchTerm, data }) => {
             !textMatches &&
             !results.some((r) => r.id === item.id)
           ) {
-            results.push({ ...item, content: subResults, isParentMatch: true })
+            results.push({
+              ...item,
+              content: subResults,
+              isParentMatch: true,
+              highlightedTitle: highlightText(item.title, term),
+            })
           } else {
-            results.push(...subResults)
+            const existingResultIndex = results.findIndex(
+              (r) => r.id === item.id,
+            )
+            if (existingResultIndex !== -1) {
+              results[existingResultIndex] = {
+                ...results[existingResultIndex],
+                content: [
+                  ...(results[existingResultIndex].content || []),
+                  ...subResults,
+                ],
+              }
+            } else {
+              results.push(...subResults)
+            }
           }
         }
       }
@@ -64,57 +143,61 @@ const Content = ({ selectedItemId, searchTerm, data }) => {
     : null
 
   return (
-    <main className="app-content">
+    <ContentContainer>
       {searchTerm && searchResults.length > 0 ? (
         <>
-          <h2>Resultados da Busca para "{searchTerm}"</h2>
-          <div className="search-results-list">
+          <ContentTitle>Resultados da Busca para "{searchTerm}"</ContentTitle>
+          <SearchResultsList>
             {searchResults.map((result) => (
-              <div key={result.id} className="search-result-item">
-                <h3>{result.title}</h3>
-                {result.text && (
+              <SearchResultItem key={result.id}>
+                <SearchResultTitle>
+                  {result.highlightedTitle || result.title}
+                </SearchResultTitle>
+                {result.highlightedText && (
                   <pre className="documentation-text">
-                    {renderContentWithBreaks(result.text)}
+                    {renderContentWithBreaks(result.highlightedText)}
                   </pre>
                 )}
                 {result.isParentMatch &&
                   result.content &&
                   result.content.map((subRes) => (
-                    <div key={subRes.id} className="search-result-sub-item">
-                      <h4>{subRes.title}</h4>
-                      {subRes.text && (
+                    <SearchResultSubItem key={subRes.id}>
+                      <h4>{subRes.highlightedTitle || subRes.title}</h4>
+                      {subRes.highlightedText && (
                         <pre className="documentation-text">
-                          {renderContentWithBreaks(subRes.text)}
+                          {renderContentWithBreaks(subRes.highlightedText)}
                         </pre>
                       )}
-                    </div>
+                    </SearchResultSubItem>
                   ))}
-              </div>
+              </SearchResultItem>
             ))}
-          </div>
+          </SearchResultsList>
         </>
       ) : searchTerm && searchResults.length === 0 ? (
         <>
-          <h2>Nenhum resultado encontrado para "{searchTerm}"</h2>
+          <ContentTitle>
+            Nenhum resultado encontrado para "{searchTerm}"
+          </ContentTitle>
           <p>Tente refinar sua busca.</p>
         </>
       ) : selectedItem ? (
         <>
-          <h2>{selectedItem.title}</h2>
+          <ContentTitle>{selectedItem.title}</ContentTitle>
           <pre className="documentation-text">
             {renderContentWithBreaks(selectedItem.text)}
           </pre>
         </>
       ) : (
         <>
-          <h2>Bem-vindo ao SD Help!</h2>
+          <ContentTitle>Bem-vindo ao SD Help!</ContentTitle>
           <p>
             Navegue pelas seções à esquerda ou use a barra de pesquisa para
             encontrar informações sobre as rotinas do sistema SD Informática.
           </p>
         </>
       )}
-    </main>
+    </ContentContainer>
   )
 }
 
