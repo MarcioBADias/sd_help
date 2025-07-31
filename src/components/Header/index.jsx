@@ -1,32 +1,37 @@
 import React from 'react'
-import { Search } from 'react-feather'
+import {
+  HeaderContainer,
+  AppTitle,
+  SearchBar,
+  SearchIcon,
+  SearchInput,
+  ThemeToggleButton,
+} from './style'
 
 const Header = ({ dispatchTheme, dispatchNavigation, searchTerm }) => {
-  const toggleTheme = () => {
-    dispatchTheme({ type: 'TOGGLE_THEME' })
-  }
-
   const handleSearchChange = (event) => {
     dispatchNavigation({ type: 'SET_SEARCH_TERM', payload: event.target.value })
   }
 
   return (
-    <header className="app-header">
-      <h1 className="app-title">SD Help</h1>
-      <div className="search-bar">
-        <Search size={18} className="search-icon" />
-        <input
+    <HeaderContainer>
+      <AppTitle>SD Help</AppTitle>
+      <SearchBar>
+        <SearchIcon />
+        <SearchInput
           type="text"
           placeholder="Pesquisar..."
           value={searchTerm}
           onChange={handleSearchChange}
-          className="search-input"
         />
-      </div>
-      <button onClick={toggleTheme} className="theme-toggle-button">
+      </SearchBar>
+      <ThemeToggleButton
+        onClick={() => dispatchTheme({ type: 'TOGGLE_THEME' })}
+      >
         Alternar Tema
-      </button>
-    </header>
+      </ThemeToggleButton>
+    </HeaderContainer>
   )
 }
+
 export { Header }
