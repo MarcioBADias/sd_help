@@ -1,5 +1,12 @@
 import React from 'react'
-import { ChevronDown, ChevronRight } from 'react-feather'
+import {
+  StyledSidebarItem,
+  SidebarItemHeader,
+  SidebarItemTitle,
+  SidebarSubmenu,
+  StyledChevronRight,
+  StyledChevronDown,
+} from './style'
 
 const SidebarItem = ({ item, level, navigationState, dispatchNavigation }) => {
   const hasChildren = item.content && item.content.length > 0
@@ -19,18 +26,17 @@ const SidebarItem = ({ item, level, navigationState, dispatchNavigation }) => {
       })
     }
   }
-
-  const itemClassName = `sidebar-item level-${level} ${isSelected ? 'selected' : ''} ${hasChildren ? 'has-children' : ''}`
+  const levelClass = `level-${level}`
 
   return (
-    <li className={itemClassName}>
-      <div className="sidebar-item-header" onClick={handleItemClick}>
+    <StyledSidebarItem className={levelClass}>
+      <SidebarItemHeader onClick={handleItemClick} isSelected={isSelected}>
         {hasChildren &&
-          (isExpanded ? <ChevronDown size={16} /> : <ChevronRight size={16} />)}
-        <span className="sidebar-item-title">{item.title}</span>
-      </div>
+          (isExpanded ? <StyledChevronDown /> : <StyledChevronRight />)}
+        <SidebarItemTitle>{item.title}</SidebarItemTitle>
+      </SidebarItemHeader>
       {hasChildren && isExpanded && (
-        <ul className="sidebar-submenu">
+        <SidebarSubmenu>
           {item.content.map((subItem) => (
             <SidebarItem
               key={subItem.id}
@@ -40,9 +46,9 @@ const SidebarItem = ({ item, level, navigationState, dispatchNavigation }) => {
               dispatchNavigation={dispatchNavigation}
             />
           ))}
-        </ul>
+        </SidebarSubmenu>
       )}
-    </li>
+    </StyledSidebarItem>
   )
 }
 
