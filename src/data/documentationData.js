@@ -78,131 +78,262 @@ const documentationData = [
     ],
   },
   {
-    id: 'preparacao-windows-sdpdv',
-    title: '3 - Preparação Windows para o SDPdv',
+    id: 'ativando-usuario-administrador',
+    title: '1 - Ativando usuário Administrador',
     content: [
       {
-        id: 'ativar-usuario-administrador',
-        title: '3.1 - Ativar o usuário administrador do Windows',
-        text: `3.1.1 - WIN+R digitar "netplwiz" [cite: 14]
-            3.1.2 - avançado > avançado > pasta usuários > selecionar o administrador e clicar em propriedades > ativar o usuário administrador [cite: 14]
-            3.1.3 - fazer logoff e entrar com administrador e excluir qualquer outro usuário [cite: 14]`,
+        id: 'ativando-usuario-administrador-netplwiz',
+        title: '1.1 - WIN+R digitar "netplwiz"',
+        text: 'avançado > avançado > pasta usuários > selecionar o administrador e clicar em propriedades > ativar o usuário administrador [cite: 1]',
       },
       {
-        id: 'rodar-bat-sdpdv-install',
-        title: '3.2 - Rodar o BAT SDPDV_install',
-        text: `3.2.1 - Ao terminar de rodar precisa configurar a rede fixando o IP (se for necessário), na opção de desempenho por "ajustar para o melhor desempenho", na configuração de controle do usuário por o ultimo nível e no controle de plano de energia desmarcar [cite: 14]
-            o desligamento pra nunca [cite: 15]`,
-      },
-      {
-        id: 'desabilitar-defender-control',
-        title: '3.3- Desabilitar o Defender Control',
-        text: ``,
-      },
-      {
-        id: 'atualizar-windows-update',
-        title: '3.4 - Atualizar o Windows update',
-        text: ``,
-      },
-      {
-        id: 'wub',
-        title: '3.5 - Wub',
-        text: `Apenas se for necessário. [cite: 15]
-            Manter ativo para desabilitar o win. update [cite: 16]`,
-      },
-      {
-        id: 'bat-remocao-programas',
+        id: 'ativando-usuario-administrador-logoff',
         title:
-          '3.6 - BAT de remoção de programas que não são utilizados (Debload)',
-        text: `3.6.1 - primeiro comando no powershell adm: Get-AppxPackage | [cite: 16]
-            Remove-AppxPackage [cite: 17]
-            3.6.2 - segundo comando no powershell adm: Get-AppxPackage | where-object {$_.name -notlike "*store*"} | [cite: 17]
-            Remove-AppxPackage [cite: 18]`,
-      },
-      {
-        id: 'bat-protecao-cpu',
-        title: '3.7 - BAT Proteção do software 100% CPU',
-        text: `3.7.1 - Regedit > HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Schedule > Start mudar de 2 para 4 [cite: 18]`,
+          '1.2 - Fazer logoff e entrar com administrador e excluir qualquer outro usuário',
+        text: 'fazer logoff e entrar com administrador e excluir qualquer outro usuário [cite: 1]',
       },
     ],
   },
   {
-    id: 'instalacao-sdpdv',
-    title: '4 - Instalação do SDPdv',
+    id: 'criar-pasta-c',
+    title: '2 - Criar uma pasta no C: chamada "PDV+"',
+    text: 'Criar uma pasta no C: chamada "PDV+" [cite: 1]',
+  },
+  {
+    id: 'instalar-teamviewer',
+    title: '3 - Instalar e configurar o teamviewer',
     content: [
       {
-        id: 'executar-instalador-sdpdv',
-        title: '4.1 - executar o INSTALADOR do SDPdv',
-        text: `4.1.1 - Pegar o numero de ativação e passar no SDAPP para retornar a chave e seguir com o instalador [cite: 19]`,
-      },
-      {
-        id: 'preparo-pos-instalacao',
-        title: '4.2 - Preparo pós instalação',
-        text: `4.2.1 - Selecionar o tipo de Impressora [cite: 19]
-            4.2.2 - Numero do Caixa [cite: 19]
-            4.2.3 - Filial DO BANCO DE DADOS [cite: 19]
-            4.2.4 - tipo de carga SEMPRE SEGURA [cite: 19]
-            4.2.5 - Se tiver os dados de a chave, numero IBGA, token e código SEFAZ pode inserir para preencher o XML ou só seguir que ele vai [cite: 19]
-            instalar de qualquer forma. [cite: 19]
-            !!! Ao termino não dar ok para reinicialização pois precisamos rodar o update que vai reiniciar de qualquer forma, só fechar. [cite: 20]`,
-      },
-      {
-        id: 'rodar-update',
-        title: '4.3 - Rodar o update',
-        text: ``,
-      },
-      {
-        id: 'preparando-sdpdv-inicializacao',
-        title: '4.4 - Preparando o SDPdv para inicialização',
-        text: `4.4.1 - abrir o XML para copiar de um XML de PDV já existente ou seguir as configurações indicadas a seguir. [cite: 21]
-            4.4.1.1 - GFinalizar: 9 (Para desligar o computador pelo botão desligar) [cite: 21]
-            4.4.1.2 - GValidarCarga: Sempre SIM [cite: 21]
-            4.4.1.3 - ImpressoraFiscal: IFModelo colocar o mesmo modelo e IFPorta por a porta gerada pelo instalador ou USB se for rconhecida na porta USB [cite: 21]
-            4.4.1.4 - Balanca: BModelo com modelo da baança e cuidado com a porta COM que vai aparecer conforme no gerenciador [cite: 21]
-            4.4.1.5 - TEF: Se o cliente usar config SITEF, mudar o TefOpcao para dedicado e o TefExpress para SIM, se ele usar POS mudar o TefOpcao para manual [cite: 22]
-            4.4.1.6 - CONTROLE GERAL: buscar CTNumeroPDV para por o numero do PDV e buscar o CTUsuariosSDSuper [cite: 22]
-            e marcar SIM sempre para ela. [cite: 22]
-            4.4.1.7 - NFCe: Se já houver na nova instalação os arquivos NFCeUltimoDoc, NFCeUltimoChaveDoc e NFCeUltimoProtocolo, apague e deixe puxar automaticamente. [cite: 23]
-            !!! EM duvidas pode usar o SDPDV .ini que tem um gabarito para ajudar [cite: 23]`,
-      },
-      {
-        id: 'instalacao-vpn-sitef',
-        title: '4.5 - Instalação da VPN do SITEF do Express',
-        text: `4.5.1 - Buscar o drive do pin-pad (rotineiramente gertec), instalador do VPN Gsurf e Certificado do cliente [cite: 24]
-            4.5.2 - Abrir o GSClient e instalar o setup > avançar e na parte de serviço escrever "SITEF" e finalizar [cite: 24]
-            4.5.3 - abrir o certificado. [cite: 24]
-            4.5.3.1 - usuário: Fernando_Silva senha: Sd@2024 [cite: 24]
-            4.5.3.2 - Solicitar e digitar o OTP e aguardar o OK [cite: 24]
-            4.5.4 - Na instalação descompactar o Clisitef produção e copiar os arquivos [cite: 24]
-            4.5.4.1 - Ir para C:\\windows\\systemwow64 e depois colar na pasta system32 [cite: 25]
-            4.5.4.2 - na pasta system64 buscar clisitef.ini [cite: 25]
-            4.5.4.2.1 - em porta digitar em maiúsculo AUTO_USB e reiniciar a maquina [cite: 25]`,
-      },
-      {
-        id: 'comunicacao-sql',
-        title: '4.6 - Comunicação do SQL',
-        text: `4.6.1 - menu iniciar > Buscar "SQL Server Configuration Manager" [cite: 25]
-            4.6.2 - expandir "Configuração de Rede do SQL Server > Habilitar os protocolos com botão direito. [cite: 25]`,
-      },
-      {
-        id: 'compartilhar-pasta-sdpdv',
-        title: '4.7 - compartilhar a pastar SDPdv',
-        text: `4.7.1 - Botão direito > Propriedades > Compartilhamento > Compartilhamento avançado > Marcar compartilhar [cite: 25]
-            Pasta > Mudar o nome "SDPdv" para "SDPdv$" > Permissões > Habilitar controle total. Depois em Segurança e repete o controle total. [cite: 25]
-            !! Agora só abrir o PDV e aguardar o erro de carga, após isso fechar o erro e ir no Super dar uma primeira carga (ATUALIZAR > Filial > Desmarca todos e marcar só o da instalação e enviar carga com botão "Atualizar")`,
-      },
-      {
-        id: 'iniciar-pelo-pdv',
-        title: '4.8 - Iniciar pelo PDV',
-        text: `4.8.1 - HKEY_LOCAL_MACHINE > SOFTWARE > MICROSOFT > WINDOWS NT > CurrentVersion > WinLogon > Shell > Alterar para c:\\SDPdv\\SDPdv.exe [cite: 26]`,
-      },
-      {
-        id: 'ajuste-resolucao',
-        title: '4.9 - Ajuste de resolução',
-        text: `4.9.1 - Menu inicar intel e selecionar o CENTRO [cite: 26]
-            DE COMANDO GRAFICO > Video > Modificar a escala para escala de exibição ou preenchimento. [cite: 27]`,
+        id: 'instalar-teamviewer-config',
+        title: '3.1 - Configurar teamviewer',
+        text: 'teamviewer inicia com Windows (MARCAR), conexões de lan (aceitar) - por senha: SD@info1525 [cite: 1]',
       },
     ],
+  },
+  {
+    id: 'mudar-nome-maquina',
+    title: '4 - Mudar o nome da maquina para o nome do PDV',
+    content: [
+      {
+        id: 'mudar-nome-maquina-cmd',
+        title: '4.1 - No CMD seguir com comando',
+        text: 'WMIC computersystem where name="%computername%" call rename name="SDPdv02" [cite: 2] obs: dentro de name="SDPdvV04" Vamos mudar para o nome do PC que desejamos. [cite: 2] WMIC computersystem where name="DESKTOP-HT" call rename name="SDPdv01" [cite: 3]',
+      },
+    ],
+  },
+  {
+    id: 'rodar-sdpdv-install',
+    title: '5 - Rodar SDPDV.install 3',
+    content: [
+      {
+        id: 'sdpdv-install-configuracao',
+        title: '5.1 - Alterar configurações de controle de conta (MINIMO)',
+        text: 'alterar configurações de controle de conta (MINIMO) [cite: 3]',
+      },
+      {
+        id: 'sdpdv-install-seguranca',
+        title:
+          '5.2 - Alterar configurações de segurança (desmarcar todas as mensagens de segurança)',
+        text: 'alterar configurações de segurança (desmarcar todas as mensagens de segurança) [cite: 3]',
+      },
+      {
+        id: 'sdpdv-install-desempenho',
+        title: '5.3 - Opções de desempenho',
+        text: 'ajustar para obter um melhor desempenho [cite: 3]',
+      },
+      {
+        id: 'sdpdv-install-energia',
+        title: '5.4 - Energia',
+        text: 'desligar video nunca- configurações avançadas - desliga disco rigido nunca - configurações USB - Desabilitado [cite: 3]',
+      },
+    ],
+  },
+  {
+    id: 'configurar-ip-fixo',
+    title: '6 - Configurar o IP Fixo',
+    content: [
+      {
+        id: 'configurar-ip-fixo-servidor',
+        title:
+          '6.1 - Abrir o servidor para ver qual o IP configurado para o PDV',
+        text: 'abrir o servidor para ver qual o IP configurado para o PDV [cite: 4]',
+      },
+      {
+        id: 'configurar-ip-fixo-gateway',
+        title: '6.2 - Conferir o gateway no proprio PDV',
+        text: 'conferir o gateway no proprio PDV [cite: 4]',
+      },
+      {
+        id: 'configurar-ip-fixo-rede',
+        title: '6.3 - Ir em central de rede e compartilhamento',
+        text: 'ir em central de rede e compartilhamento -> alterar as configurações de compartilhamento avançadas -> todas as redes -> ativar compartilhamento -> desativar compartilhamento por senha [cite: 4]',
+      },
+    ],
+  },
+  {
+    id: 'copiar-arquivos',
+    title: '7 - Copiar arquivos',
+    text: 'ir no pdv em uso, copiar 4 arquivos - SDPDVXML, SD.AVI na Windows, syswow64/system32 = Clisitef.ini e DLL.pdv.dll [cite: 4]',
+  },
+  {
+    id: 'verificar-versao-pdvs',
+    title: '8 - Verificar a versão dos PDVS',
+    content: [
+      {
+        id: 'verificar-versao-pdvs-instalador',
+        title: '8.1 - Executar INSTALADOR PDV como ADMINISTRADOR',
+        text: 'executar INSTALADOR PDV como ADMINISTRADOR - desmarcar SD ATIVADOR <----- [cite: 4]',
+      },
+      {
+        id: 'verificar-versao-pdvs-impressora',
+        title: '8.2 - Conferir impressora',
+        text: 'conferir impressora [cite: 4]',
+      },
+      {
+        id: 'verificar-versao-pdvs-numero',
+        title: '8.3 - Conferir numero do PDV',
+        text: 'conferir numero do PDV [cite: 4]',
+      },
+      {
+        id: 'verificar-versao-pdvs-carga',
+        title: '8.4 - CARGA SEMPRE SEGURA',
+        text: 'CARGA SEMPRE SEGURA [cite: 4]',
+      },
+      {
+        id: 'verificar-versao-pdvs-xml-referencia',
+        title: '8.5 - Se houver XML de referencia',
+        text: 'Se houver XML de referencia, alterar as informaçoes do Caixa respectivo [cite: 4]',
+      },
+      {
+        id: 'verificar-versao-pdvs-tags-xml',
+        title: '8.6 - Conferir as tags no XML',
+        text: 'Conferir as tags no XML "versão PDV", "GPdvPadrao", "CTNUMEROPDV", "TefPdv", "<TefPdv>SE000002</TefPdv>", mudar para numero do PDV de instalação e "NFCE SERIE" "NFCE ULTIMO" > zerar todos,NFC dentro da pasta do PDV -> GNE - NNF VER A SERIE. [cite: 5] ultimo doc que foi emitido no invoice. [cite: 6] NFC SERIE - Serie do site do invoice. [cite: 7]',
+      },
+    ],
+  },
+  {
+    id: 'rodar-atualizador',
+    title: '9 - RODAR ATUALIZADOR',
+    content: [
+      {
+        id: 'rodar-atualizador-programa-sdpdv',
+        title: '9.1 - Abrir o programa SDPDV',
+        text: 'abrir o programa SDPDV, ele vai dar erro de carga (FECHAR RAPIDO PARA NAO DESLIGAR QUANDO SAIR DESSA TELA) [cite: 7]',
+      },
+    ],
+  },
+  {
+    id: 'parar-habilitar-sql',
+    title: '12 - Parar e habilitar o serviço do sql',
+    text: 'parar o serviço do sql > net stop mssqlserver - habilitar o serviço do sql > net start mssqlserver (Abrir o services.msc) [cite: 7]',
+  },
+  {
+    id: 'enviar-carga',
+    title: '13 - Enviar carga apenas para o PDV selecionado',
+    text: 'enviar carga apenas para o PDV selecionado [cite: 7]',
+  },
+  {
+    id: 'instalando-gsurf',
+    title: 'Instalando GSURF',
+    content: [
+      {
+        id: 'instalando-gsurf-acesso',
+        title: 'Acesso GSURF',
+        text: 'login: Fernando_Silva [cite: 7] Senha: SD@123!@# [cite: 7]',
+      },
+      {
+        id: 'instalando-gsurf-site',
+        title: 'Site GSURF',
+        text: 'IR NO SITE E JOGAR O CNPJ DO CLIENTE, IR NO PDV QUE DEVEMOS E APERTAR EM REINSTALAR. [cite: 8] Dessa forma vai aparecer o codigo OTP. [cite: 8] Pegar a OTP no site da Gsrf e ve se o cliente é GSURF. [cite: 9] login: Fernando_silva [cite: 10] Senha: SD@123!@# [cite: 10] otp: 3415048349 [cite: 10]',
+      },
+      {
+        id: 'instalando-gsurf-listener',
+        title: '- Instalar o GsurfRSA Listener',
+        text: 'instalar o GsurfRSA Listener - serviço: sitef. [cite: 9]',
+      },
+    ],
+  },
+  {
+    id: 'executa-pdv',
+    title: '14 - Executa o PDV',
+    content: [
+      {
+        id: 'executa-pdv-abrir-caixa',
+        title: '14.1 - A para abrir o caixa',
+        text: 'A para abrir o caixa (senha é +1 HORA +1 MES +1 ANO) [cite: 10]',
+      },
+      {
+        id: 'executa-pdv-abrir-venda',
+        title: '14.2 - J para tentar abrir venda',
+        text: 'J para tentar abrir venda [cite: 10]',
+      },
+    ],
+  },
+  {
+    id: 'fechar-abrir-gne',
+    title: '15 - Fechar o pdv, e abrir o arquivo GNE.XML',
+    text: 'fechar o pdv, e abrir o arquivo GNE.XML (Conferir e NNF e Serie) [cite: 10]',
+  },
+  {
+    id: 'conferir-ultima-venda',
+    title: '16 - Conferir a ultima venda no invoicy',
+    text: 'conferir a ultima venda no invoicy [cite: 10]',
+  },
+  {
+    id: 'realizar-venda-teste',
+    title: '17 - Realizar venda de teste',
+    content: [
+      {
+        id: 'realizar-venda-teste-abrir-caixa',
+        title: '17.1 - A (Abrir o Caixa)',
+        text: 'A (Abrir o Caixa) [cite: 10]',
+      },
+      {
+        id: 'realizar-venda-teste-ativar-caixa',
+        title: '17.2 - M (Ativar o Caixa)',
+        text: 'M (Ativar o Caixa) [cite: 10]',
+      },
+      {
+        id: 'realizar-venda-teste-abrir-venda',
+        title: '17.3 - F1 (Abrir Venda)',
+        text: 'F1 (Abrir Venda) [cite: 10]',
+      },
+      {
+        id: 'realizar-venda-teste-fechar-venda',
+        title: '17.4 - J (Fechar Venda)',
+        text: 'J (Fechar Venda) [cite: 10]',
+      },
+      {
+        id: 'realizar-venda-teste-credito',
+        title: '17.5 - K (Credito)',
+        text: 'K (Credito) [cite: 10]',
+      },
+      {
+        id: 'realizar-venda-teste-dinheiro',
+        title: '17.6 - D (Dinheiro)',
+        text: 'D (Dinheiro) [cite: 10]',
+      },
+      {
+        id: 'realizar-venda-teste-cancelar-venda',
+        title: '17.7 - U (Cancelar Venda)',
+        text: 'U (Cancelar Venda) [cite: 10]',
+      },
+      {
+        id: 'realizar-venda-teste-fechar-caixa',
+        title: '17.8 - F (Fechar Caixa)',
+        text: 'F (Fechar Caixa) [cite: 10]',
+      },
+    ],
+  },
+  {
+    id: 'dicas',
+    title: 'DICAS!',
+    text: 'VER A SERIE DO PDV -> FISCAL / NFC-E / CONFIGURAÇÕES / ESCOLHER A FILIAL - EXIBIR/ Pegar o numero de serie e olhar no invoice. [cite: 11]',
+  },
+  {
+    id: 'formulario-instalacao',
+    title: 'Formulário para Instalação de PDV',
+    text: 'Nome: Número do PDV: Modelo da impressora: Modelo do PinPad: Marca da balança: PDV: CNPJ: Usuário do Windows é administrador? ( ) Sim ( ) Não TeamViewer ID: Senha: Senha: SD@info1525 [cite: 12, 13]',
   },
   {
     id: 'sdpdv-funcoes',
