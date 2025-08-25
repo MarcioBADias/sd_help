@@ -6,45 +6,45 @@ const documentationData = [
       {
         id: 'sd-super-server-requisitos',
         title: '1.1 - Requisitos:',
-        text: `1.1.1 - Instalador do SD Super 10.2.1993 (https://www.sdsuper.net) [cite: 1]
-            1.1.2 - Plug de segurança (Chave de segurança central do cliente conseguido pelo gestor em uma primeira instalação ou arquivo localizado no servidor antigo em \\C:\\SDSuper\\Programas, procurar "Plug.sdx") [cite: 1]
-            1.1.3 - Arquivos importantes para casos de copiar um servidor: [cite: 1]
-            --> Pasta Programas: [cite: 1]
-            --- CopiarPdv; [cite: 1]
-            --- SDCarga; [cite: 2]
-            --- SDPlusServer; [cite: 2]
-            --- SDSentinela; [cite: 2]
-            --- SDSuper; [cite: 2]
-            --- SDSuperX; [cite: 2]
-            --> Pasta SDTerminal [cite: 2]
-            --> BATS [cite: 2]
-            --- Liberar_Portas; [cite: 2]
-            --- Servidor_Bat; [cite: 2]
-            --- Trocar_port; [cite: 2]
-            (muda as portas para principal utilizada 8081) [cite: 3]`,
+        text: `1.1.1 - Instalador do SD Super 10.2.1993 (https://www.sdsuper.net)
+            1.1.2 - Plug de segurança (Chave de segurança central do cliente conseguido pelo gestor em uma primeira instalação ou arquivo localizado no servidor antigo em \\C:\\SDSuper\\Programas, procurar "Plug.sdx")
+            1.1.3 - Arquivos importantes para casos de copiar um servidor:
+            --> Pasta Programas:
+            --- CopiarPdv;
+            --- SDCarga;
+            --- SDPlusServer;
+            --- SDSentinela;
+            --- SDSuper;
+            --- SDSuperX;
+            --> Pasta SDTerminal
+            --> BATS
+            --- Liberar_Portas;
+            --- Servidor_Bat;
+            --- Trocar_port;
+            (muda as portas para principal utilizada 8081)`,
       },
       {
         id: 'sd-super-server-executando',
         title: '1.2 Executando o instalador:',
-        text: `1.2.1 - Marcar "Este computador é um servidor" e check em relatórios; [cite: 3]
-            1.2.2 - CNPJ e chave nos campos seguintes, campos a serem habilitados no SD App; [cite: 4]
-            1.2.3 - numero de filial é obrigatório [cite: 5]
-            1.2.4 - puxar o banco de dados do cliente e adicionar à pasta Dados. [cite: 5]
-            (C:\\SDSuper\\Dados) [cite: 6]
-            1.2.5 - Regedit > HKEY_LOCAL_MACHINE > SOFTWARE > WOW6432NODE > SDInformatica > SDSuper: APIP (Por o ip do servidor Windows)/ Ativador caminho (ip do servidor Windows) / BDIP (ip do Linux, onde encontra o banco de dados) [cite: 6]
-            1.2.6 - Adicionar o arquivo do Plug na pasta SDSuper, pasta Programas [cite: 6]
-            1.2.7 - compartilhar as pastas PROGRAMAS E RELATORIOS da pasta SDSuper: [cite: 6]
-            --> Botão direito > Propriedades > Compartilhamento > Compartilhamento avançado > Marcar compartilhar Pasta > Mudar o nome "PROGRAMAS" para "SDProgs$" > Permissões > Habilitar controle total. [cite: 6]
-            Depois em Segurança e repete o controle total. [cite: 7]
-            IPC: Para relatórios serão as mesmas configurações mas com nome da pasta SDRelats$ [cite: 7]
-            1.2.8 - Em casos de backup, copiar e colar os arquivos da pasta Programas. [cite: 7]
-            1.2.9 - na primeira execução ele vai solicitar alteração de moeda: Opção correta da unidade monetário, para moeda negativa é quarta opção de baixo pra cima (R$-1,1) [cite: 8]`,
+        text: `1.2.1 - Marcar "Este computador é um servidor" e check em relatórios;
+            1.2.2 - CNPJ e chave nos campos seguintes, campos a serem habilitados no SD App;
+            1.2.3 - numero de filial é obrigatório
+            1.2.4 - puxar o banco de dados do cliente e adicionar à pasta Dados.
+            (C:\\SDSuper\\Dados)
+            1.2.5 - Regedit > HKEY_LOCAL_MACHINE > SOFTWARE > WOW6432NODE > SDInformatica > SDSuper: APIP (Por o ip do servidor Windows)/ Ativador caminho (ip do servidor Windows) / BDIP (ip do Linux, onde encontra o banco de dados)
+            1.2.6 - Adicionar o arquivo do Plug na pasta SDSuper, pasta Programas
+            1.2.7 - compartilhar as pastas PROGRAMAS E RELATORIOS da pasta SDSuper:
+            --> Botão direito > Propriedades > Compartilhamento > Compartilhamento avançado > Marcar compartilhar Pasta > Mudar o nome "PROGRAMAS" para "SDProgs$" > Permissões > Habilitar controle total.
+            Depois em Segurança e repete o controle total.
+            IPC: Para relatórios serão as mesmas configurações mas com nome da pasta SDRelats$
+            1.2.8 - Em casos de backup, copiar e colar os arquivos da pasta Programas.
+            1.2.9 - na primeira execução ele vai solicitar alteração de moeda: Opção correta da unidade monetário, para moeda negativa é quarta opção de baixo pra cima (R$-1,1)`,
       },
       {
         id: 'sd-super-server-erro-chave',
         title:
           '1.3 Em caso de erro de chave de acesso incorreta na abertura do Sentinela:',
-        text: `1.3.1 - Vai no SDSuper > Controle > Sentinela > Seleciona o sentinela e clica em alterar > Aba Vendas > em Chave clicar no botão verde que vai mudar a chave e normalizar o Sentinela. [cite: 8]`,
+        text: `1.3.1 - Vai no SDSuper > Controle > Sentinela > Seleciona o sentinela e clica em alterar > Aba Vendas > em Chave clicar no botão verde que vai mudar a chave e normalizar o Sentinela.`,
       },
     ],
   },
@@ -55,25 +55,25 @@ const documentationData = [
       {
         id: 'sd-super-retaguarda-requisitos',
         title: '2.1 - Requisitos:',
-        text: `2.1.2 - Instalador do SDSuper [cite: 9]`,
+        text: `2.1.2 - Instalador do SDSuper`,
       },
       {
         id: 'sd-super-retaguarda-executando',
         title: '2.2 - Executando a instalação:',
-        text: `2.2.1 - Abrindo o instalador [cite: 9]
-            2.2.2 - Marcar a caixa "Esse computador não será Servidor > Digitar o ip do servidor Windows > Marcar relatórios [cite: 9]
-            2.2.2.1 - Para confirmar o IP do servidor Windows funcionando abrir o WIN+R e escrever \\\\ip_do_servidor_win\\SDProgs$ , se abrir está tudo certo, senão precisa configurar a credencial pelo gerenciador de credenciais, adicionando o ip, o nome como administrador e a senha que é SD@super0212 [cite: 9]
-            2.2.3 - Repetir os passos 1.2.2 até 1.2.5 [cite: 9]
-            2.2.4 - Caso precise ter um banco na filial 1 mas [cite: 10]
-            praticar preços e etiquetas de filial 2, basta por o numero da filial praticante nos campos FilialEtiquetas e FilialPrecosPromocoes [cite: 10]
-            2.2.5 - Repetir o procedimento 1.2.9 quando abrir pela primeira vez (Ajuste de moeda negativa) [cite: 10]`,
+        text: `2.2.1 - Abrindo o instalador
+            2.2.2 - Marcar a caixa "Esse computador não será Servidor > Digitar o ip do servidor Windows > Marcar relatórios
+            2.2.2.1 - Para confirmar o IP do servidor Windows funcionando abrir o WIN+R e escrever \\\\ip_do_servidor_win\\SDProgs$ , se abrir está tudo certo, senão precisa configurar a credencial pelo gerenciador de credenciais, adicionando o ip, o nome como administrador e a senha que é SD@super0212
+            2.2.3 - Repetir os passos 1.2.2 até 1.2.5
+            2.2.4 - Caso precise ter um banco na filial 1 mas
+            praticar preços e etiquetas de filial 2, basta por o numero da filial praticante nos campos FilialEtiquetas e FilialPrecosPromocoes
+            2.2.5 - Repetir o procedimento 1.2.9 quando abrir pela primeira vez (Ajuste de moeda negativa)`,
       },
       {
         id: 'sd-super-retaguarda-dica',
         title: 'PULO DO GATO (DICA) DE INSTALAÇÃO DE RETAGUARDA',
-        text: `1 - Pegar com cliente CNPJ e pesquisar o nome para acessar o servidor [cite: 11]
-            2 - Acessar o REGEDIT no caminho 1.2.5 e salvar os dados APIP, BDIP e FILIAL [cite: 12]
-            3 - Para instalar pode-se por o CNPJ da SD (04260756/0001-20) e a chave 322685 [cite: 13]`,
+        text: `1 - Pegar com cliente CNPJ e pesquisar o nome para acessar o servidor
+            2 - Acessar o REGEDIT no caminho 1.2.5 e salvar os dados APIP, BDIP e FILIAL
+            3 - Para instalar pode-se por o CNPJ da SD (04260756/0001-20) e a chave 322685`,
       },
     ],
   },
@@ -84,20 +84,20 @@ const documentationData = [
       {
         id: 'ativando-usuario-administrador-netplwiz',
         title: '1.1 - WIN+R digitar "netplwiz"',
-        text: 'avançado > avançado > pasta usuários > selecionar o administrador e clicar em propriedades > ativar o usuário administrador [cite: 1]',
+        text: 'avançado > avançado > pasta usuários > selecionar o administrador e clicar em propriedades > ativar o usuário administrador',
       },
       {
         id: 'ativando-usuario-administrador-logoff',
         title:
           '1.2 - Fazer logoff e entrar com administrador e excluir qualquer outro usuário',
-        text: 'fazer logoff e entrar com administrador e excluir qualquer outro usuário [cite: 1]',
+        text: 'fazer logoff e entrar com administrador e excluir qualquer outro usuário',
       },
     ],
   },
   {
     id: 'criar-pasta-c',
     title: '2 - Criar uma pasta no C: chamada "PDV+"',
-    text: 'Criar uma pasta no C: chamada "PDV+" [cite: 1]',
+    text: 'Criar uma pasta no C: chamada "PDV+"',
   },
   {
     id: 'instalar-teamviewer',
@@ -106,7 +106,7 @@ const documentationData = [
       {
         id: 'instalar-teamviewer-config',
         title: '3.1 - Configurar teamviewer',
-        text: 'teamviewer inicia com Windows (MARCAR), conexões de lan (aceitar) - por senha: SD@info1525 [cite: 1]',
+        text: 'teamviewer inicia com Windows (MARCAR), conexões de lan (aceitar) - por senha: SD@info1525',
       },
     ],
   },
@@ -117,7 +117,7 @@ const documentationData = [
       {
         id: 'mudar-nome-maquina-cmd',
         title: '4.1 - No CMD seguir com comando',
-        text: 'WMIC computersystem where name="%computername%" call rename name="SDPdv02" [cite: 2] obs: dentro de name="SDPdvV04" Vamos mudar para o nome do PC que desejamos. [cite: 2] WMIC computersystem where name="DESKTOP-HT" call rename name="SDPdv01" [cite: 3]',
+        text: 'WMIC computersystem where name="%computername%" call rename name="SDPdv02" obs: dentro de name="SDPdvV04" Vamos mudar para o nome do PC que desejamos. WMIC computersystem where name="DESKTOP-HT" call rename name="SDPdv01"',
       },
     ],
   },
@@ -128,23 +128,23 @@ const documentationData = [
       {
         id: 'sdpdv-install-configuracao',
         title: '5.1 - Alterar configurações de controle de conta (MINIMO)',
-        text: 'alterar configurações de controle de conta (MINIMO) [cite: 3]',
+        text: 'alterar configurações de controle de conta (MINIMO)',
       },
       {
         id: 'sdpdv-install-seguranca',
         title:
           '5.2 - Alterar configurações de segurança (desmarcar todas as mensagens de segurança)',
-        text: 'alterar configurações de segurança (desmarcar todas as mensagens de segurança) [cite: 3]',
+        text: 'alterar configurações de segurança (desmarcar todas as mensagens de segurança)',
       },
       {
         id: 'sdpdv-install-desempenho',
         title: '5.3 - Opções de desempenho',
-        text: 'ajustar para obter um melhor desempenho [cite: 3]',
+        text: 'ajustar para obter um melhor desempenho',
       },
       {
         id: 'sdpdv-install-energia',
         title: '5.4 - Energia',
-        text: 'desligar video nunca- configurações avançadas - desliga disco rigido nunca - configurações USB - Desabilitado [cite: 3]',
+        text: 'desligar video nunca- configurações avançadas - desliga disco rigido nunca - configurações USB - Desabilitado',
       },
     ],
   },
@@ -156,24 +156,24 @@ const documentationData = [
         id: 'configurar-ip-fixo-servidor',
         title:
           '6.1 - Abrir o servidor para ver qual o IP configurado para o PDV',
-        text: 'abrir o servidor para ver qual o IP configurado para o PDV [cite: 4]',
+        text: 'abrir o servidor para ver qual o IP configurado para o PDV',
       },
       {
         id: 'configurar-ip-fixo-gateway',
         title: '6.2 - Conferir o gateway no proprio PDV',
-        text: 'conferir o gateway no proprio PDV [cite: 4]',
+        text: 'conferir o gateway no proprio PDV',
       },
       {
         id: 'configurar-ip-fixo-rede',
         title: '6.3 - Ir em central de rede e compartilhamento',
-        text: 'ir em central de rede e compartilhamento -> alterar as configurações de compartilhamento avançadas -> todas as redes -> ativar compartilhamento -> desativar compartilhamento por senha [cite: 4]',
+        text: 'ir em central de rede e compartilhamento -> alterar as configurações de compartilhamento avançadas -> todas as redes -> ativar compartilhamento -> desativar compartilhamento por senha',
       },
     ],
   },
   {
     id: 'copiar-arquivos',
     title: '7 - Copiar arquivos',
-    text: 'ir no pdv em uso, copiar 4 arquivos - SDPDVXML, SD.AVI na Windows, syswow64/system32 = Clisitef.ini e DLL.pdv.dll [cite: 4]',
+    text: 'ir no pdv em uso, copiar 4 arquivos - SDPDVXML, SD.AVI na Windows, syswow64/system32 = Clisitef.ini e DLL.pdv.dll',
   },
   {
     id: 'verificar-versao-pdvs',
@@ -182,32 +182,32 @@ const documentationData = [
       {
         id: 'verificar-versao-pdvs-instalador',
         title: '8.1 - Executar INSTALADOR PDV como ADMINISTRADOR',
-        text: 'executar INSTALADOR PDV como ADMINISTRADOR - desmarcar SD ATIVADOR <----- [cite: 4]',
+        text: 'executar INSTALADOR PDV como ADMINISTRADOR - desmarcar SD ATIVADOR <-----',
       },
       {
         id: 'verificar-versao-pdvs-impressora',
         title: '8.2 - Conferir impressora',
-        text: 'conferir impressora [cite: 4]',
+        text: 'conferir impressora',
       },
       {
         id: 'verificar-versao-pdvs-numero',
         title: '8.3 - Conferir numero do PDV',
-        text: 'conferir numero do PDV [cite: 4]',
+        text: 'conferir numero do PDV',
       },
       {
         id: 'verificar-versao-pdvs-carga',
         title: '8.4 - CARGA SEMPRE SEGURA',
-        text: 'CARGA SEMPRE SEGURA [cite: 4]',
+        text: 'CARGA SEMPRE SEGURA',
       },
       {
         id: 'verificar-versao-pdvs-xml-referencia',
         title: '8.5 - Se houver XML de referencia',
-        text: 'Se houver XML de referencia, alterar as informaçoes do Caixa respectivo [cite: 4]',
+        text: 'Se houver XML de referencia, alterar as informaçoes do Caixa respectivo',
       },
       {
         id: 'verificar-versao-pdvs-tags-xml',
         title: '8.6 - Conferir as tags no XML',
-        text: 'Conferir as tags no XML "versão PDV", "GPdvPadrao", "CTNUMEROPDV", "TefPdv", "<TefPdv>SE000002</TefPdv>", mudar para numero do PDV de instalação e "NFCE SERIE" "NFCE ULTIMO" > zerar todos,NFC dentro da pasta do PDV -> GNE - NNF VER A SERIE. [cite: 5] ultimo doc que foi emitido no invoice. [cite: 6] NFC SERIE - Serie do site do invoice. [cite: 7]',
+        text: 'Conferir as tags no XML "versão PDV", "GPdvPadrao", "CTNUMEROPDV", "TefPdv", "<TefPdv>SE000002</TefPdv>", mudar para numero do PDV de instalação e "NFCE SERIE" "NFCE ULTIMO" > zerar todos,NFC dentro da pasta do PDV -> GNE - NNF VER A SERIE. ultimo doc que foi emitido no invoice. NFC SERIE - Serie do site do invoice.',
       },
     ],
   },
@@ -218,19 +218,19 @@ const documentationData = [
       {
         id: 'rodar-atualizador-programa-sdpdv',
         title: '9.1 - Abrir o programa SDPDV',
-        text: 'abrir o programa SDPDV, ele vai dar erro de carga (FECHAR RAPIDO PARA NAO DESLIGAR QUANDO SAIR DESSA TELA) [cite: 7]',
+        text: 'abrir o programa SDPDV, ele vai dar erro de carga (FECHAR RAPIDO PARA NAO DESLIGAR QUANDO SAIR DESSA TELA)',
       },
     ],
   },
   {
     id: 'parar-habilitar-sql',
     title: '12 - Parar e habilitar o serviço do sql',
-    text: 'parar o serviço do sql > net stop mssqlserver - habilitar o serviço do sql > net start mssqlserver (Abrir o services.msc) [cite: 7]',
+    text: 'parar o serviço do sql > net stop mssqlserver - habilitar o serviço do sql > net start mssqlserver (Abrir o services.msc)',
   },
   {
     id: 'enviar-carga',
     title: '13 - Enviar carga apenas para o PDV selecionado',
-    text: 'enviar carga apenas para o PDV selecionado [cite: 7]',
+    text: 'enviar carga apenas para o PDV selecionado',
   },
   {
     id: 'instalando-gsurf',
@@ -239,17 +239,17 @@ const documentationData = [
       {
         id: 'instalando-gsurf-acesso',
         title: 'Acesso GSURF',
-        text: 'login: Fernando_Silva [cite: 7] Senha: SD@123!@# [cite: 7]',
+        text: 'login: Fernando_Silva Senha: SD@123!@#',
       },
       {
         id: 'instalando-gsurf-site',
         title: 'Site GSURF',
-        text: 'IR NO SITE E JOGAR O CNPJ DO CLIENTE, IR NO PDV QUE DEVEMOS E APERTAR EM REINSTALAR. [cite: 8] Dessa forma vai aparecer o codigo OTP. [cite: 8] Pegar a OTP no site da Gsrf e ve se o cliente é GSURF. [cite: 9] login: Fernando_silva [cite: 10] Senha: SD@123!@# [cite: 10] otp: 3415048349 [cite: 10]',
+        text: 'IR NO SITE E JOGAR O CNPJ DO CLIENTE, IR NO PDV QUE DEVEMOS E APERTAR EM REINSTALAR. Dessa forma vai aparecer o codigo OTP. Pegar a OTP no site da Gsrf e ve se o cliente é GSURF. login: Fernando_silva Senha: SD@123!@# otp: 3415048349',
       },
       {
         id: 'instalando-gsurf-listener',
         title: '- Instalar o GsurfRSA Listener',
-        text: 'instalar o GsurfRSA Listener - serviço: sitef. [cite: 9]',
+        text: 'instalar o GsurfRSA Listener - serviço: sitef.',
       },
     ],
   },
@@ -260,24 +260,24 @@ const documentationData = [
       {
         id: 'executa-pdv-abrir-caixa',
         title: '14.1 - A para abrir o caixa',
-        text: 'A para abrir o caixa (senha é +1 HORA +1 MES +1 ANO) [cite: 10]',
+        text: 'A para abrir o caixa (senha é +1 HORA +1 MES +1 ANO)',
       },
       {
         id: 'executa-pdv-abrir-venda',
         title: '14.2 - J para tentar abrir venda',
-        text: 'J para tentar abrir venda [cite: 10]',
+        text: 'J para tentar abrir venda',
       },
     ],
   },
   {
     id: 'fechar-abrir-gne',
     title: '15 - Fechar o pdv, e abrir o arquivo GNE.XML',
-    text: 'fechar o pdv, e abrir o arquivo GNE.XML (Conferir e NNF e Serie) [cite: 10]',
+    text: 'fechar o pdv, e abrir o arquivo GNE.XML (Conferir e NNF e Serie)',
   },
   {
     id: 'conferir-ultima-venda',
     title: '16 - Conferir a ultima venda no invoicy',
-    text: 'conferir a ultima venda no invoicy [cite: 10]',
+    text: 'conferir a ultima venda no invoicy',
   },
   {
     id: 'realizar-venda-teste',
@@ -286,54 +286,54 @@ const documentationData = [
       {
         id: 'realizar-venda-teste-abrir-caixa',
         title: '17.1 - A (Abrir o Caixa)',
-        text: 'A (Abrir o Caixa) [cite: 10]',
+        text: 'A (Abrir o Caixa)',
       },
       {
         id: 'realizar-venda-teste-ativar-caixa',
         title: '17.2 - M (Ativar o Caixa)',
-        text: 'M (Ativar o Caixa) [cite: 10]',
+        text: 'M (Ativar o Caixa)',
       },
       {
         id: 'realizar-venda-teste-abrir-venda',
         title: '17.3 - F1 (Abrir Venda)',
-        text: 'F1 (Abrir Venda) [cite: 10]',
+        text: 'F1 (Abrir Venda)',
       },
       {
         id: 'realizar-venda-teste-fechar-venda',
         title: '17.4 - J (Fechar Venda)',
-        text: 'J (Fechar Venda) [cite: 10]',
+        text: 'J (Fechar Venda)',
       },
       {
         id: 'realizar-venda-teste-credito',
         title: '17.5 - K (Credito)',
-        text: 'K (Credito) [cite: 10]',
+        text: 'K (Credito)',
       },
       {
         id: 'realizar-venda-teste-dinheiro',
         title: '17.6 - D (Dinheiro)',
-        text: 'D (Dinheiro) [cite: 10]',
+        text: 'D (Dinheiro)',
       },
       {
         id: 'realizar-venda-teste-cancelar-venda',
         title: '17.7 - U (Cancelar Venda)',
-        text: 'U (Cancelar Venda) [cite: 10]',
+        text: 'U (Cancelar Venda)',
       },
       {
         id: 'realizar-venda-teste-fechar-caixa',
         title: '17.8 - F (Fechar Caixa)',
-        text: 'F (Fechar Caixa) [cite: 10]',
+        text: 'F (Fechar Caixa)',
       },
     ],
   },
   {
     id: 'dicas',
     title: 'DICAS!',
-    text: 'VER A SERIE DO PDV -> FISCAL / NFC-E / CONFIGURAÇÕES / ESCOLHER A FILIAL - EXIBIR/ Pegar o numero de serie e olhar no invoice. [cite: 11]',
+    text: 'VER A SERIE DO PDV -> FISCAL / NFC-E / CONFIGURAÇÕES / ESCOLHER A FILIAL - EXIBIR/ Pegar o numero de serie e olhar no invoice.',
   },
   {
     id: 'formulario-instalacao',
     title: 'Formulário para Instalação de PDV',
-    text: 'Nome: Número do PDV: Modelo da impressora: Modelo do PinPad: Marca da balança: PDV: CNPJ: Usuário do Windows é administrador? ( ) Sim ( ) Não TeamViewer ID: Senha: Senha: SD@info1525 [cite: 12, 13]',
+    text: 'Nome: Número do PDV: Modelo da impressora: Modelo do PinPad: Marca da balança: PDV: CNPJ: Usuário do Windows é administrador? ( ) Sim ( ) Não TeamViewer ID: Senha: Senha: SD@info1525 13]',
   },
   {
     id: 'sdpdv-funcoes',
@@ -342,8 +342,8 @@ const documentationData = [
       {
         id: 'abrir-caixa',
         title: '5.1 - Abrir caixa:',
-        text: `A [cite: 27]
-            5.1.1 - Senha PDV: [cite: 27]`,
+        text: `A
+            5.1.1 - Senha PDV:`,
       },
       {
         id: 'fechar-caixa',
@@ -363,7 +363,7 @@ const documentationData = [
       {
         id: 'leitura',
         title: '5.5 - Leitura: X',
-        text: `(Imprime o resumo de operação até o momento) [cite: 27]`,
+        text: `(Imprime o resumo de operação até o momento)`,
       },
       {
         id: 'suprimentos',
@@ -377,17 +377,17 @@ const documentationData = [
           {
             id: 'menu-nfce',
             title: '5.7.1 - Menu NFCe',
-            text: `5.7.1.1 - Ativar modo off-line [cite: 27]
-            5.7.1.2 - Cancelar NFCe Aberta [cite: 27]
-            5.7.1.3 - Reimprimir Danfe (Ultima ou anterior) [cite: 27]
-            5.7.1.4 - Enviar NFCe em contigencias [cite: 27]`,
+            text: `5.7.1.1 - Ativar modo off-line
+            5.7.1.2 - Cancelar NFCe Aberta
+            5.7.1.3 - Reimprimir Danfe (Ultima ou anterior)
+            5.7.1.4 - Enviar NFCe em contigencias`,
           },
           {
             id: 'administracao-tef',
             title: '5.7.2 - Administração Tef',
-            text: `5.7.2.1 - Recarga de celular [cite: 28]
-            5.7.2.2 - Carga forçada de tabelas no pinpad (servidor) [cite: 28]
-            5.7.2.3 - Cancelamento de transação [cite: 28]`,
+            text: `5.7.2.1 - Recarga de celular
+            5.7.2.2 - Carga forçada de tabelas no pinpad (servidor)
+            5.7.2.3 - Cancelamento de transação`,
           },
           {
             id: 'trocar-operador',
@@ -428,13 +428,13 @@ const documentationData = [
       },
       {
         id: 'retirada',
-        title: '5.14 - [cite: 28] Retirada (Sangria)',
+        title: '5.14 - Retirada (Sangria)',
         text: ``,
       },
       {
         id: 'pagamento',
         title: '5.15 - Pagamento',
-        text: `(pagamento realiza pagamento direto com valor do PDV, cuidado não gera vinculo com fornecedor e com contas a pagar) [cite: 28]`,
+        text: `(pagamento realiza pagamento direto com valor do PDV, cuidado não gera vinculo com fornecedor e com contas a pagar)`,
       },
       {
         id: 'preco',
