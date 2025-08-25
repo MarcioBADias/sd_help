@@ -1,7 +1,7 @@
 const documentationData = [
   {
     id: 'sd-super-server',
-    title: '1 Instalação do SD Super SERVIDOR',
+    title: '1 SD Super SERVIDOR',
     content: [
       {
         id: 'sd-super-server-requisitos',

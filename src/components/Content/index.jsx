@@ -87,43 +87,54 @@ const Content = ({ selectedItemId, searchTerm, data }) => {
     if (!term) return []
     const lowerCaseTerm = term.toLowerCase()
     const results = []
-    const processedIds = new Set() // Para evitar duplicatas
 
     items.forEach((item) => {
-      // Verifica se a seção pai corresponde
       const titleMatches = item.title.toLowerCase().includes(lowerCaseTerm)
       const textMatches =
         item.text && item.text.toLowerCase().includes(lowerCaseTerm)
 
-      let subResults = []
-      if (item.content) {
-        subResults = filterData(item.content, term)
+      if (titleMatches || textMatches) {
+        results.push({
+          ...item,
+          highlightedTitle: highlightText(item.title, term),
+          highlightedText: item.text ? highlightText(item.text, term) : null,
+        })
       }
 
-      // Cenário 1: Se o item pai ou seus sub-itens corresponderem
-      if (titleMatches || textMatches || subResults.length > 0) {
-        if (!processedIds.has(item.id)) {
-          results.push({
-            ...item,
-            highlightedTitle: highlightText(item.title, term),
-            highlightedText: item.text ? highlightText(item.text, term) : null,
-            // Se a busca é em um sub-item, anexa os sub-resultados
-            content:
-              subResults.length > 0
-                ? subResults.map((subItem) => ({
-                    ...subItem,
-                    highlightedTitle: highlightText(subItem.title, term),
-                    highlightedText: subItem.text
-                      ? highlightText(subItem.text, term)
-                      : null,
-                  }))
-                : item.content, // Se não houver sub-resultados, mantenha o conteúdo original
-          })
-          processedIds.add(item.id)
+      if (item.content) {
+        const subResults = filterData(item.content, term)
+        if (subResults.length > 0) {
+          if (
+            !titleMatches &&
+            !textMatches &&
+            !results.some((r) => r.id === item.id)
+          ) {
+            results.push({
+              ...item,
+              content: subResults,
+              isParentMatch: true,
+              highlightedTitle: highlightText(item.title, term),
+            })
+          } else {
+            const existingResultIndex = results.findIndex(
+              (r) => r.id === item.id,
+            )
+            if (existingResultIndex !== -1) {
+              results[existingResultIndex] = {
+                ...results[existingResultIndex],
+                content: [
+                  ...(results[existingResultIndex].content || []),
+                  ...subResults,
+                ],
+              }
+            } else {
+              results.push(...subResults)
+            }
+          }
         }
       }
     })
-    return results
+    return Array.from(new Map(results.map((item) => [item.id, item])).values())
   }
 
   const searchResults = searchTerm ? filterData(data, searchTerm) : []
@@ -173,24 +184,9 @@ const Content = ({ selectedItemId, searchTerm, data }) => {
       ) : selectedItem ? (
         <>
           <ContentTitle>{selectedItem.title}</ContentTitle>
-          {/* Verifica se o item principal tem texto direto */}
-          {selectedItem.text && (
-            <pre className="documentation-text">
-              {renderContentWithBreaks(selectedItem.text)}
-            </pre>
-          )}
-          {/* Mapeia e renderiza todos os sub-itens */}
-          {selectedItem.content &&
-            selectedItem.content.map((subItem) => (
-              <React.Fragment key={subItem.id}>
-                <h4>{subItem.title}</h4>
-                {subItem.text && (
-                  <pre className="documentation-text">
-                    {renderContentWithBreaks(subItem.text)}
-                  </pre>
-                )}
-              </React.Fragment>
-            ))}
+          <pre className="documentation-text">
+            {renderContentWithBreaks(selectedItem.text)}
+          </pre>
         </>
       ) : (
         <>
