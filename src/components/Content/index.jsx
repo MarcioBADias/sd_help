@@ -183,9 +183,18 @@ const Content = ({ selectedItemId, searchTerm, data }) => {
         </>
       ) : selectedItem ? (
         <>
-          <ContentTitle>{selectedItem.title}</ContentTitle>
+          {console.log(selectedItem)}
           <pre className="documentation-text">
-            {renderContentWithBreaks(selectedItem.text)}
+            {renderContentWithBreaks(
+              selectedItem.text.map((i) => {
+                return (
+                  <>
+                    <ContentTitle>{i.title}</ContentTitle>
+                    <p>{i.text}</p>
+                  </>
+                )
+              }),
+            )}
           </pre>
         </>
       ) : (

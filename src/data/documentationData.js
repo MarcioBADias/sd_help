@@ -6,7 +6,11 @@ const documentationData = [
       {
         id: 'sd-super-server-requisitos',
         title: '1.1 - Requisitos:',
-        text: `1.1.1 - Instalador do SD Super 10.2.1993 (https://www.sdsuper.net)
+        text: [
+          {
+            id: 'sd-super-server-requisitos',
+            title: '1.1 - Requisitos:',
+            text: `1.1.1 - Instalador do SD Super 10.2.1993 (https://www.sdsuper.net)
             1.1.2 - Plug de segurança (Chave de segurança central do cliente conseguido pelo gestor em uma primeira instalação ou arquivo localizado no servidor antigo em \\C:\\SDSuper\\Programas, procurar "Plug.sdx")
             1.1.3 - Arquivos importantes para casos de copiar um servidor:
             --> Pasta Programas:
@@ -22,11 +26,11 @@ const documentationData = [
             --- Servidor_Bat;
             --- Trocar_port;
             (muda as portas para principal utilizada 8081)`,
-      },
-      {
-        id: 'sd-super-server-executando',
-        title: '1.2 Executando o instalador:',
-        text: `1.2.1 - Marcar "Este computador é um servidor" e check em relatórios;
+          },
+          {
+            id: 'sd-super-server-executando',
+            title: '1.2 Executando o instalador:',
+            text: `1.2.1 - Marcar "Este computador é um servidor" e check em relatórios;
             1.2.2 - CNPJ e chave nos campos seguintes, campos a serem habilitados no SD App;
             1.2.3 - numero de filial é obrigatório
             1.2.4 - puxar o banco de dados do cliente e adicionar à pasta Dados.
@@ -39,58 +43,14 @@ const documentationData = [
             IPC: Para relatórios serão as mesmas configurações mas com nome da pasta SDRelats$
             1.2.8 - Em casos de backup, copiar e colar os arquivos da pasta Programas.
             1.2.9 - na primeira execução ele vai solicitar alteração de moeda: Opção correta da unidade monetário, para moeda negativa é quarta opção de baixo pra cima (R$-1,1)`,
-      },
-      {
-        id: 'sd-super-server-erro-chave',
-        title:
-          '1.3 Em caso de erro de chave de acesso incorreta na abertura do Sentinela:',
-        text: `1.3.1 - Vai no SDSuper > Controle > Sentinela > Seleciona o sentinela e clica em alterar > Aba Vendas > em Chave clicar no botão verde que vai mudar a chave e normalizar o Sentinela.`,
-      },
-    ],
-  },
-  {
-    id: 'sd-super-retaguarda',
-    title: '2 - Instalação de SDSuper Retaguarda',
-    content: [
-      {
-        id: 'sd-super-retaguarda-requisitos',
-        title: '2.1 - Requisitos:',
-        text: `2.1.2 - Instalador do SDSuper`,
-      },
-      {
-        id: 'sd-super-retaguarda-executando',
-        title: '2.2 - Executando a instalação:',
-        text: `2.2.1 - Abrindo o instalador
-            2.2.2 - Marcar a caixa "Esse computador não será Servidor > Digitar o ip do servidor Windows > Marcar relatórios
-            2.2.2.1 - Para confirmar o IP do servidor Windows funcionando abrir o WIN+R e escrever \\\\ip_do_servidor_win\\SDProgs$ , se abrir está tudo certo, senão precisa configurar a credencial pelo gerenciador de credenciais, adicionando o ip, o nome como administrador e a senha que é SD@super0212
-            2.2.3 - Repetir os passos 1.2.2 até 1.2.5
-            2.2.4 - Caso precise ter um banco na filial 1 mas
-            praticar preços e etiquetas de filial 2, basta por o numero da filial praticante nos campos FilialEtiquetas e FilialPrecosPromocoes
-            2.2.5 - Repetir o procedimento 1.2.9 quando abrir pela primeira vez (Ajuste de moeda negativa)`,
-      },
-      {
-        id: 'sd-super-retaguarda-dica',
-        title: 'PULO DO GATO (DICA) DE INSTALAÇÃO DE RETAGUARDA',
-        text: `1 - Pegar com cliente CNPJ e pesquisar o nome para acessar o servidor
-            2 - Acessar o REGEDIT no caminho 1.2.5 e salvar os dados APIP, BDIP e FILIAL
-            3 - Para instalar pode-se por o CNPJ da SD (04260756/0001-20) e a chave 322685`,
-      },
-    ],
-  },
-  {
-    id: 'ativando-usuario-administrador',
-    title: '1 - Ativando usuário Administrador',
-    content: [
-      {
-        id: 'ativando-usuario-administrador-netplwiz',
-        title: '1.1 - WIN+R digitar "netplwiz"',
-        text: 'avançado > avançado > pasta usuários > selecionar o administrador e clicar em propriedades > ativar o usuário administrador',
-      },
-      {
-        id: 'ativando-usuario-administrador-logoff',
-        title:
-          '1.2 - Fazer logoff e entrar com administrador e excluir qualquer outro usuário',
-        text: 'fazer logoff e entrar com administrador e excluir qualquer outro usuário',
+          },
+          {
+            id: 'sd-super-server-erro-chave',
+            title:
+              '1.3 Em caso de erro de chave de acesso incorreta na abertura do Sentinela:',
+            text: `1.3.1 - Vai no SDSuper > Controle > Sentinela > Seleciona o sentinela e clica em alterar > Aba Vendas > em Chave clicar no botão verde que vai mudar a chave e normalizar o Sentinela.`,
+          },
+        ],
       },
     ],
   },
