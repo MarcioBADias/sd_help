@@ -4,9 +4,15 @@ const documentationData = [
     title: 'SD Super SERVIDOR',
     content: [
       {
+<<<<<<< HEAD
         id: 'sd-super-server',
         title: 'SD Super SERVIDOR',
         infos: [
+=======
+        id: 'sd-super-server-requisitos',
+        title: '1.1 - Requisitos:',
+        text: [
+>>>>>>> bd320bf7616d1e4d419397647fd543abee732c39
           {
             id: 'sd-super-server-requisitos',
             title: '1.1 - Requisitos:',
@@ -51,6 +57,7 @@ const documentationData = [
             text: `1.3.1 - Vai no SDSuper > Controle > Sentinela > Seleciona o sentinela e clica em alterar > Aba Vendas > em Chave clicar no botão verde que vai mudar a chave e normalizar o Sentinela.`,
           },
         ],
+<<<<<<< HEAD
       },
     ],
   },
@@ -97,6 +104,8 @@ const documentationData = [
         title:
           '1.2 - Fazer logoff e entrar com administrador e excluir qualquer outro usuário',
         text: 'fazer logoff e entrar com administrador e excluir qualquer outro usuário',
+=======
+>>>>>>> bd320bf7616d1e4d419397647fd543abee732c39
       },
     ],
   },
