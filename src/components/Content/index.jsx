@@ -185,7 +185,13 @@ const Content = ({ selectedItemId, searchTerm, data }) => {
         <>
           <ContentTitle>{selectedItem.title}</ContentTitle>
           <pre className="documentation-text">
-            {renderContentWithBreaks(selectedItem.text)}
+            {renderContentWithBreaks(
+              selectedItem.content.map((info) => {
+                ;<div key={info.id}>
+                  <h2>{info.title}</h2>
+                </div>
+              }),
+            )}
           </pre>
         </>
       ) : (

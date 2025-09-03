@@ -1,12 +1,16 @@
 const documentationData = [
   {
     id: 'sd-super-server',
-    title: '1 SD Super SERVIDOR',
+    title: 'SD Super SERVIDOR',
     content: [
       {
-        id: 'sd-super-server-requisitos',
-        title: '1.1 - Requisitos:',
-        text: `1.1.1 - Instalador do SD Super 10.2.1993 (https://www.sdsuper.net)
+        id: 'sd-super-server',
+        title: 'SD Super SERVIDOR',
+        infos: [
+          {
+            id: 'sd-super-server-requisitos',
+            title: '1.1 - Requisitos:',
+            text: `1.1.1 - Instalador do SD Super 10.2.1993 (https://www.sdsuper.net)
             1.1.2 - Plug de segurança (Chave de segurança central do cliente conseguido pelo gestor em uma primeira instalação ou arquivo localizado no servidor antigo em \\C:\\SDSuper\\Programas, procurar "Plug.sdx")
             1.1.3 - Arquivos importantes para casos de copiar um servidor:
             --> Pasta Programas:
@@ -22,11 +26,11 @@ const documentationData = [
             --- Servidor_Bat;
             --- Trocar_port;
             (muda as portas para principal utilizada 8081)`,
-      },
-      {
-        id: 'sd-super-server-executando',
-        title: '1.2 Executando o instalador:',
-        text: `1.2.1 - Marcar "Este computador é um servidor" e check em relatórios;
+          },
+          {
+            id: 'sd-super-server-executando',
+            title: '1.2 Executando o instalador:',
+            text: `1.2.1 - Marcar "Este computador é um servidor" e check em relatórios;
             1.2.2 - CNPJ e chave nos campos seguintes, campos a serem habilitados no SD App;
             1.2.3 - numero de filial é obrigatório
             1.2.4 - puxar o banco de dados do cliente e adicionar à pasta Dados.
@@ -39,12 +43,14 @@ const documentationData = [
             IPC: Para relatórios serão as mesmas configurações mas com nome da pasta SDRelats$
             1.2.8 - Em casos de backup, copiar e colar os arquivos da pasta Programas.
             1.2.9 - na primeira execução ele vai solicitar alteração de moeda: Opção correta da unidade monetário, para moeda negativa é quarta opção de baixo pra cima (R$-1,1)`,
-      },
-      {
-        id: 'sd-super-server-erro-chave',
-        title:
-          '1.3 Em caso de erro de chave de acesso incorreta na abertura do Sentinela:',
-        text: `1.3.1 - Vai no SDSuper > Controle > Sentinela > Seleciona o sentinela e clica em alterar > Aba Vendas > em Chave clicar no botão verde que vai mudar a chave e normalizar o Sentinela.`,
+          },
+          {
+            id: 'sd-super-server-erro-chave',
+            title:
+              '1.3 Em caso de erro de chave de acesso incorreta na abertura do Sentinela:',
+            text: `1.3.1 - Vai no SDSuper > Controle > Sentinela > Seleciona o sentinela e clica em alterar > Aba Vendas > em Chave clicar no botão verde que vai mudar a chave e normalizar o Sentinela.`,
+          },
+        ],
       },
     ],
   },
